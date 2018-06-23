@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 public class Game extends Canvas implements Runnable{
 	
-	public static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L; 
 	
     private boolean isRunning = false;
     private Thread thread;
@@ -23,6 +23,7 @@ public class Game extends Canvas implements Runnable{
         handler = new Handler();
         camera = new Camera(0, 0);
         this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(new MouseInput(handler, camera));
         
         BufferedImageLoader loader = new BufferedImageLoader();
         world = loader.loadImage("/Wizardry_World.png");
@@ -103,6 +104,9 @@ public class Game extends Canvas implements Runnable{
         g.fillRect(0, 0, 1000, 563);
         
         g2d.translate(-camera.getX(), -camera.getY());
+        
+        g.setColor(Color.red);
+        g.fillRect(0, 0, 1000, 563);
 
         handler.render(g);
         
@@ -132,6 +136,9 @@ public class Game extends Canvas implements Runnable{
 				}
 				if(blue == 255) {
 					handler.addObject(new Wizard(xx * 32, yy * 32, ID.Player, handler));
+				}
+				if(green == 255) {
+					handler.addObject(new Enemy(xx * 32, yy * 32, ID.Enemy, handler));
 				}
 			}
 		}
