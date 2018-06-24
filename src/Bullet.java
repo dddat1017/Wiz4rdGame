@@ -6,8 +6,8 @@ public class Bullet extends GameObject {
 
 	private Handler handler;
 	
-	public Bullet(int x, int y, ID id, Handler handler, int mouseX, int mouseY) {
-		super(x, y, id);
+	public Bullet(int x, int y, ID id, Handler handler, int mouseX, int mouseY, SpriteSheet ss) {
+		super(x, y, id, ss);
 		this.handler = handler;
 		
 		velX = (mouseX - x) / 10;
