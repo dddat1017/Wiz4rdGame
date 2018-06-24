@@ -131,16 +131,17 @@ public class Game extends Canvas implements Runnable{
         g.setColor(Color.gray);
         g.fillRect(5, 5, 200, 32);
         
-        g.setColor(Color.green);
+        g.setColor(Color.red);
         g.fillRect(5, 5, hp*2, 32);
         if(hp == 0) {
+        	g.setColor(Color.green);
         	g.drawString("Game Over!", 500, 250);
         }
         
         g.setColor(Color.black);
         g.drawRect(5, 5, 200, 32);
         
-        g.setColor(Color.white);
+        g.setColor(Color.orange);
         g.drawString("Spells: " + ammo, 5, 50);
 
         //////////////////////////////////
